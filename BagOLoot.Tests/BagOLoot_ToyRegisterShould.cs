@@ -6,18 +6,12 @@ namespace BagOLoot.Tests
 {
     public class ToyRegisterShould
     {
-        private readonly ToyRegister _register;
-        private readonly ChildRegister _book;
-
-        public ToyRegisterShould()
-        {
-            _register = new ToyRegister();
-            _book = new ChildRegister();
-        }
 
         [Fact]
         public void AddToy()
         {
+            var _register = new ToyRegister();
+            var _book = new ChildRegister();
             // Create a child
             Child kid = _book.AddChild("Terell");
 
@@ -29,11 +23,17 @@ namespace BagOLoot.Tests
         [Fact]
         public void RevokeToyFromChild()
         {
+            var _register = new ToyRegister();
+            var _book = new ChildRegister();
+            //arrange
             Child kid = _book.AddChild("Terell");
             Toy toy = _register.Add("Silly Putty", kid);
-            _register.RevokeToy(kid, toy);
+
+            //act
+            _register.RevokeToy(toy);
             List<Toy> toysForTerell = _register.GetToysForChild(kid);
 
+            //assert
             Assert.DoesNotContain(toy, toysForTerell);
 
         }

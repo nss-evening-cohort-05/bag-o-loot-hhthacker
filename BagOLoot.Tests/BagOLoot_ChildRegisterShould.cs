@@ -6,11 +6,11 @@ namespace BagOLoot.Tests
 {
     public class ChildRegisterShould
     {
-        private readonly ChildRegister _register;
+        private readonly SantasNiceList _register;
 
         public ChildRegisterShould()
         {
-            _register = new ChildRegister();
+            _register = new SantasNiceList();
         }
 
         [Theory]

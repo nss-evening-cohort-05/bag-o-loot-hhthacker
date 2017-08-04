@@ -10,13 +10,10 @@ namespace BagOLoot
         public static void Main(string[] args)
         {
             MainMenu menu = new MainMenu();
-            ChildRegister book = new ChildRegister();
-            ToyRegister bag = new ToyRegister();
-            Child name = new Child();
-            Toy toy = new Toy();
+            SantasNiceList book = new SantasNiceList();
+            SantasToyBag bag = new SantasToyBag();
 
-            // Choice will hold the number entered by the user
-            // after main menu ws displayed
+            // Choice will hold the number entered by the user after main menu ws displayed
             int choice;
 
             do
@@ -43,19 +40,18 @@ namespace BagOLoot
                     
                     //Menu option 4: Review child's toy list
                     case 4:
-                        ToyList.DoAction(bag, book);
+                        ToyList.DoAction(book, bag);
                         break;
 
-                    // //Menu option 5: Child toy delivery complete
-                    // case 5:
-                    //     ChildRegister.GetChildren(child);
-                    //     break;
+                    //Menu option 5: Child toy delivery complete
+                    case 5:
+                        UpdateDelivery.DoAction(book, bag);
+                        break;
 
-                    // //Menu option 6: Yuletime delivery report
-                    // case 6: 
-                    //     ToyRegister.GetToysForChild(kid);
-                    //     break;
-
+                    //Menu option 6: Yuletime delivery report
+                    case 6: 
+                        ReviewDelivery.DoAction(book, bag);
+                        break;
                 }
             } while (choice <= 6);
         }

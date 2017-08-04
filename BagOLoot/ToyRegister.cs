@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace BagOLoot
 {
-    public class ToyRegister
+    public class SantasToyBag
     {
         private List<Toy> _toys = new List<Toy>();
 
@@ -29,8 +29,7 @@ namespace BagOLoot
 
         public List<Toy> GetToysForChild(Child kid)
         {
-            // var filteredToys = _toys.FindAll(k => k.child.name == kid.name);
-            // //return a filtered list from _toys using linq
+            // var filteredToys = _toys.Where(k => k.child.name == kid.name);
             // return _toys;
 
             var filteredToyz = from toy in _toys

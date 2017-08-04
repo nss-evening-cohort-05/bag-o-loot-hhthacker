@@ -6,22 +6,9 @@ namespace BagOLoot.Actions
 {
   public class RevokeToy
   {
-    public static void DoAction(ToyRegister bag, ChildRegister book)
+    public static void DoAction(SantasToyBag bag, SantasNiceList book)
     {
-      Console.Clear();
-      Console.WriteLine ("Remove Toy From Which Child");
-
-      var children = book.GetChildren().ToArray();
-      foreach (Child child in children)
-      {
-          Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
-      }
-
-      Console.Write ("> ");
-      string childIndex = Console.ReadLine();
-      Child kid = children[int.Parse(childIndex)-1];
-      
-      Console.WriteLine ("Pick toy to remove");
+      var kid = KidsList.Show(book);
       
       
       var toyList = bag.GetToysForChild(kid).ToArray();

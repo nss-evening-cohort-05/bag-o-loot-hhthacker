@@ -1,30 +1,20 @@
 using System;
-using System.Collections.Generic;
 
 namespace BagOLoot.Actions
 {
     public class ToyList
     {
-        public static Child Show(ChildRegister book)
+        public static void DoAction(SantasNiceList book, SantasToyBag bag)
         {
-            Console.Clear();
-            Console.WriteLine("View toy list from which child?");
+            var kidChoice = KidsList.Show(book);
 
-            var children = book.GetChildren().ToArray();
-                foreach (Child child in children)
-                {
-                    Console.WriteLine($"{Array.IndexOf(children,child)+1}. {child.name}");
-                }
+            var toyList = bag.GetToysForChild(kidChoice).ToArray();
+            foreach (Toy t in toyList)
+            {
+                Console.WriteLine($"{Array.IndexOf(toyList,t)+1}. {t.name}");
+            }
 
-            Console.Write ("> ");
-            string childName = Console.ReadLine();
-            Child kid = children[int.Parse(childIndex)-1];
-
-            var toyList = bag.GetToysForChild(kid).ToArray();
-                foreach (Toy t in toyList)
-                {
-                    Console.WriteLine($"{Array.IndexOf(toyList,t)+1}. {t.name}");
-                }
+            Console.ReadLine();
         }
 
     }

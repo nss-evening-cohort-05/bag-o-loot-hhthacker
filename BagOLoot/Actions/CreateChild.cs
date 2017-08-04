@@ -6,7 +6,7 @@ namespace BagOLoot.Actions
 {
   public class CreateChild
   {
-    public static void DoAction(ChildRegister registry)
+    public static void DoAction(SantasNiceList registry)
     {
       Console.Clear();
 
